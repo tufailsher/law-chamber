@@ -13,9 +13,15 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   int _selectedIndex=0;
   List<Widget>tabs=[
     LawyerHomePage(),
-    LawyerData(),
-    ClientSignUp(),
-    LawyerHomePage(),
+    Container(
+      color: Colors.yellow,
+    ),
+    Container(
+      color: Colors.yellow,
+    ),
+    Container(
+      color: Colors.yellow,
+    ),
   ];
   _onTapItems(int index){
     setState(() {

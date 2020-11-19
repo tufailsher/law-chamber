@@ -1,29 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:law_chamber/main.dart';
-class CalendarContainer extends StatelessWidget {
-  final Icon buttonIcon;
-  final Text buttonText;
-   CalendarContainer({
-    @required this.buttonIcon,@required this.buttonText
-});
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:law_chamber/utils/Constants.dart';
+
+import '../main.dart';
+
+class CalendarContainer extends StatefulWidget {
+  @override
+  _CalendarContainerState createState() => _CalendarContainerState();
+}
+
+class _CalendarContainerState extends State<CalendarContainer> {
+  ListTile buildListTile(Icon icon, Text text) {
+    return ListTile(
+      leading: icon,
+      title: text,
+    );
+  }
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
+    return Container(
         height: sizeConfig.height(0.5),
-        color: Colors.white,
-        child: Padding(
-          padding: EdgeInsets.only(left: sizeConfig.width(.1)),
-          child: Row(
-            children: [
-              buttonIcon,
-              SizedBox(
-                width: sizeConfig.width(0.1),
+      child: Column(
+        children: [
+          buildListTile(Icon(FontAwesomeIcons.home),Text("home")),
+       buildListTile(Icon(FontAwesomeIcons.file),Text("Curriculum Vitae")),
+          buildListTile(Icon(FontAwesomeIcons.questionCircle),Text("Help Desk")),
+          buildListTile(Icon(FontAwesomeIcons.userAlt),Text("Privacy Policy")),
+          buildListTile(Icon(FontAwesomeIcons.fileAlt),Text("Terms and Conditions")),
+          buildListTile(Icon(FontAwesomeIcons.cog),Text("Settings")),
+          FlatButton(
+            onPressed: (){},
+            child: Center(
+              child: Text("log Out",
+                style: kDrawerHeaderText,
               ),
-              buttonText,
-            ],
+            ),
+            color: Colors.red,
           ),
-        ),
+        ],
       ),
     );
   }

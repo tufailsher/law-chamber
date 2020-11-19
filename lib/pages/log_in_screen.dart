@@ -155,7 +155,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                         if (response.data=="lawyer") {
                                           Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationPage()));
                                         }else{
-                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ClientHome()));
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>LawyerHomePage()));
                                         }
                                       }
                                     },
