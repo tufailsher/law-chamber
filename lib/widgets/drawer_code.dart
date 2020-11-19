@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/utils/Constants.dart';
 import 'package:law_chamber/main.dart';
-import 'package:law_chamber/pages/lawyer_data.dart';
-import 'package:law_chamber/widgets/calendar_container.dart';
+import 'package:law_chamber/widgets/calendar_tab.dart';
+import 'package:law_chamber/widgets/call_tab.dart';
 
 class DrawerCode extends StatelessWidget {
   @override
@@ -54,10 +53,8 @@ class DrawerCode extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
-                    CalendarContainer(),
-                    Container(
-                      height: sizeConfig.height(0.5),
-                    ),
+                    CalendarTab(),
+                    CallLogs(),
                     Container(
                       height: sizeConfig.height(0.5),
                     ),

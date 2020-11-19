@@ -4,21 +4,24 @@ import 'package:law_chamber/utils/Constants.dart';
 
 import '../main.dart';
 
-class CalendarContainer extends StatefulWidget {
+class CalendarTab extends StatefulWidget {
   @override
-  _CalendarContainerState createState() => _CalendarContainerState();
+  _CalendarTabState createState() => _CalendarTabState();
 }
 
-class _CalendarContainerState extends State<CalendarContainer> {
-  ListTile buildListTile(Icon icon, Text text) {
-    return ListTile(
-      leading: icon,
-      title: text,
+class _CalendarTabState extends State<CalendarTab> {
+  Widget buildListTile(Icon icon, Text text) {
+    return Expanded(
+      child: ListTile(
+        leading: icon,
+        title: text,
+      ),
     );
   }
   @override
   Widget build(BuildContext context) {
     return Container(
+      color:Colors.white,
         height: sizeConfig.height(0.5),
       child: Column(
         children: [
