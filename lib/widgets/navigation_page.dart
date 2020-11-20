@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/pages/credit_screen.dart';
 import 'package:law_chamber/pages/lawyer_data.dart';
 import 'package:law_chamber/pages/lawyer_home_page.dart';
@@ -45,7 +46,7 @@ Widget build(BuildContext context) {
           label: 'Notification',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.supervised_user_circle),
+          icon: Icon(FontAwesomeIcons.userCircle),
           label: 'Account',
         ),
       ],

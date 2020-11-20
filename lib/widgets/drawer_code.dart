@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/utils/Constants.dart';
 import 'package:law_chamber/main.dart';
+import 'package:law_chamber/utils/Constants.dart';
 import 'package:law_chamber/widgets/calendar_tab.dart';
 import 'package:law_chamber/widgets/call_tab.dart';
 import 'package:law_chamber/widgets/inquiries_tab.dart';

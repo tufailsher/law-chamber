@@ -3,12 +3,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/main.dart';
 import 'package:law_chamber/utils/Constants.dart';
 
-class CreditScreen extends StatelessWidget {
+class CreditScreen extends StatefulWidget {
+  @override
+  _CreditScreenState createState() => _CreditScreenState();
+}
+
+class _CreditScreenState extends State<CreditScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: sizeConfig.height(0.1),
-        width: double.infinity,
+    return DefaultTabController(
+        length: 2,
         child: Column(
           children: [
             ListTile(
@@ -16,7 +20,7 @@ class CreditScreen extends StatelessWidget {
                 "Balance",
                 style: kLogInText,
               ),
-              subtitle: Icon(FontAwesomeIcons.balanceScale),
+              subtitle: Icon(FontAwesomeIcons.commentDollar),
               trailing: Text(
                 "0",
                 style: kLogInText,
@@ -27,7 +31,7 @@ class CreditScreen extends StatelessWidget {
                 "Withdrawn",
                 style: kLogInText,
               ),
-              subtitle: Icon(FontAwesomeIcons.balanceScale),
+              subtitle: Icon(FontAwesomeIcons.commentDollar),
               trailing: Text(
                 "0",
                 style: kLogInText,
@@ -38,13 +42,37 @@ class CreditScreen extends StatelessWidget {
                 "Earned",
                 style: kLogInText,
               ),
-              subtitle: Icon(FontAwesomeIcons.balanceScale),
+              subtitle: Icon(FontAwesomeIcons.commentDollar),
               trailing: Text(
                 "0",
                 style: kLogInText,
               ),
             ),
             RaisedButton(child: Text("Request Payout"), onPressed: () {}),
+            TabBar(
+              labelColor:Colors.purple ,
+              indicatorColor: Colors.redAccent,
+              unselectedLabelColor: Colors.yellowAccent,
+              tabs: [
+                Tab(
+                  text: "Credits",
+                ),
+                Tab(
+                  text: "WithDraws",
+                ),
+              ],
+            ),
+            Container(
+              color: Colors.blue,
+              height: sizeConfig.height(0.2),
+              width: double.infinity,
+              child: TabBarView(
+                children: [
+                  Center(child: Text("Credits")),
+                  Center(child: Text("WithDraws")),
+                ],
+              ),
+            ),
           ],
         ),
     );

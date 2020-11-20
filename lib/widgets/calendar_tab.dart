@@ -13,10 +13,12 @@ class CalendarTab extends StatefulWidget {
 class _CalendarTabState extends State<CalendarTab> {
   Widget buildListTile(Icon icon, Text text,Function onClick) {
     return Expanded(
-      child: ListTile(
-        leading: icon,
-        title: text,
-        onTap: onClick,
+      child: SingleChildScrollView(
+        child: ListTile(
+          leading: icon,
+          title: text,
+          onTap: onClick,
+        ),
       ),
     );
   }
@@ -33,6 +35,8 @@ class _CalendarTabState extends State<CalendarTab> {
           }),
           buildListTile(Icon(FontAwesomeIcons.home), Text("Home"),(){}),
           buildListTile(Icon(FontAwesomeIcons.file), Text("Curriculum Vitae"),(){}),
+          buildListTile(Icon(FontAwesomeIcons.file), Text("What\'s new"),(){}),
+          buildListTile(Icon(FontAwesomeIcons.file), Text("Every Day Law"),(){}),
           buildListTile(
               Icon(FontAwesomeIcons.questionCircle), Text("Help Desk"),(){}),
           buildListTile(Icon(FontAwesomeIcons.userAlt), Text("Privacy Policy"),(){}),
