@@ -22,32 +22,27 @@ class CreditScreen extends StatelessWidget {
                 style: kLogInText,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ListTile(
-                  title: Text(
-                    "Withdrawn",
-                    style: kLogInText,
-                  ),
-                  subtitle: Icon(FontAwesomeIcons.balanceScale),
-                  trailing: Text(
-                    "0",
-                    style: kLogInText,
-                  ),
-                ),
-                ListTile(
-                  title: Text(
-                    "Earned",
-                    style: kLogInText,
-                  ),
-                  subtitle: Icon(FontAwesomeIcons.balanceScale),
-                  trailing: Text(
-                    "0",
-                    style: kLogInText,
-                  ),
-                ),
-              ],
+            ListTile(
+              title: Text(
+                "Withdrawn",
+                style: kLogInText,
+              ),
+              subtitle: Icon(FontAwesomeIcons.balanceScale),
+              trailing: Text(
+                "0",
+                style: kLogInText,
+              ),
+            ),
+            ListTile(
+              title: Text(
+                "Earned",
+                style: kLogInText,
+              ),
+              subtitle: Icon(FontAwesomeIcons.balanceScale),
+              trailing: Text(
+                "0",
+                style: kLogInText,
+              ),
             ),
             RaisedButton(child: Text("Request Payout"), onPressed: () {}),
           ],
