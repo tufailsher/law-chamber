@@ -6,12 +6,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/utils/Constants.dart';
 import 'package:law_chamber/blocs/authentications_bloc.dart';
-import 'package:law_chamber/pages/client_sign_up.dart';
 import 'package:law_chamber/pages/lawyer_home_page.dart';
-import 'package:law_chamber/pages/client_home.dart';
-import 'package:law_chamber/widgets/bottom_navigation_code.dart';
+import 'package:law_chamber/utils/Constants.dart';
+import 'package:law_chamber/widgets/navigation_page.dart';
 import 'package:law_chamber/widgets/sign_in_bottom_sheet.dart';
 import 'package:law_chamber/widgets/google_sign_in.dart';
 import 'package:law_chamber/size_config.dart';
@@ -153,9 +151,9 @@ class _LogInScreenState extends State<LogInScreen> {
                                         await Provider.of<AuthenticationBLOC>(context,listen: false)
                                             .signIn(userEmail.text.trim(),userPassword.text);
                                         if (response.data=="lawyer") {
-                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavigationPage()));
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
                                         }else{
-                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>LawyerHomePage()));
+                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
                                         }
                                       }
                                     },

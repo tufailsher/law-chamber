@@ -3,6 +3,7 @@ import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law
 import 'package:law_chamber/main.dart';
 import 'package:law_chamber/widgets/calendar_tab.dart';
 import 'package:law_chamber/widgets/call_tab.dart';
+import 'package:law_chamber/widgets/inquiries_tab.dart';
 
 class DrawerCode extends StatelessWidget {
   @override
@@ -55,9 +56,7 @@ class DrawerCode extends StatelessWidget {
                   children: [
                     CalendarTab(),
                     CallLogs(),
-                    Container(
-                      height: sizeConfig.height(0.5),
-                    ),
+                    InquiriesTab(),
                   ],
                 ),
               ),
