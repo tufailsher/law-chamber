@@ -11,7 +11,7 @@ class _LawyerDataState extends State<LawyerData> {
     return SafeArea(
         child: Scaffold(
           appBar: AppBar( centerTitle: true,
-            title: Text("Home Page"),
+            title: Text("Lawyer Data"),
             flexibleSpace: Container(
               decoration: BoxDecoration(
                 gradient: kGradientColor,

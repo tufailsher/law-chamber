@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:law_chamber/pages/every_day_law_page.dart';
 import 'package:law_chamber/pages/lawyer_data.dart';
 import 'package:law_chamber/pages/lawyer_home_page.dart';
 import 'package:law_chamber/pages/what_new_page.dart';
@@ -44,7 +45,9 @@ class _CalendarTabState extends State<CalendarTab> {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context)=>WhatNewPage()));
           }),
-          buildListTile(Icon(FontAwesomeIcons.file), Text("Every Day Law"),(){}),
+          buildListTile(Icon(FontAwesomeIcons.file), Text("Every Day Law"),(){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>EveryDayLawPage()));
+          }),
           buildListTile(
               Icon(FontAwesomeIcons.questionCircle), Text("Help Desk"),(){}),
           buildListTile(Icon(FontAwesomeIcons.userAlt), Text("Privacy Policy"),(){}),

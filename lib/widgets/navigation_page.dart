@@ -15,7 +15,7 @@ TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
  List<Widget> _widgetOptions = <Widget>[
   LawyerHomePage(),
   CreditsPage(),
-  NotificationScreen(),
+  NotificationPage(),
   LawyerData(),
 ];
 

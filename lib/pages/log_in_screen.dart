@@ -109,6 +109,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                   TextFormField(
                                     controller: userPassword,
                                     textAlign: TextAlign.center,
+                                    obscureText: true,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide(),
