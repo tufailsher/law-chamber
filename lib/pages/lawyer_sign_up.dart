@@ -5,6 +5,7 @@ import 'package:law_chamber/main.dart';
 import 'package:law_chamber/utils/Constants.dart';
 import 'package:law_chamber/utils/models.dart';
 import 'package:law_chamber/widgets/app_bar_container.dart';
+import 'package:law_chamber/widgets/navigation_page.dart';
 import 'package:law_chamber/widgets/primary_button.dart';
 import 'lawyer_home_page.dart';
 
@@ -45,7 +46,7 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
           .user;
       if (user != null) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LawyerHomePage()));
+            context, MaterialPageRoute(builder: (context) => NavigationPage()));
 
         id = user.uid;
         emailController.clear();
@@ -115,6 +116,7 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                             return null;
                           },
                         ),
+                        SizedBox(height: sizeConfig.height(0.020)),
                         TextFormField(
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/pages/lawyer_data.dart';
+import 'package:law_chamber/pages/lawyer_home_page.dart';
+import 'package:law_chamber/pages/what_new_page.dart';
 import 'package:law_chamber/utils/Constants.dart';
+import 'package:law_chamber/widgets/navigation_page.dart';
 
 import '../main.dart';
 
@@ -33,9 +36,14 @@ class _CalendarTabState extends State<CalendarTab> {
           buildListTile(Icon(FontAwesomeIcons.userCircle), Text("Profile"),(){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>LawyerData()));
           }),
-          buildListTile(Icon(FontAwesomeIcons.home), Text("Home"),(){}),
-          buildListTile(Icon(FontAwesomeIcons.file), Text("Curriculum Vitae"),(){}),
-          buildListTile(Icon(FontAwesomeIcons.file), Text("What\'s new"),(){}),
+          buildListTile(Icon(FontAwesomeIcons.home), Text("Home"),(){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
+          }),
+          buildListTile(Icon(FontAwesomeIcons.file), Text("What\'s new"),
+                  (){
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context)=>WhatNewPage()));
+          }),
           buildListTile(Icon(FontAwesomeIcons.file), Text("Every Day Law"),(){}),
           buildListTile(
               Icon(FontAwesomeIcons.questionCircle), Text("Help Desk"),(){}),

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:law_chamber/pages/activity_logs.dart';
+import 'package:law_chamber/pages/load_page.dart';
 import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/utils/Constants.dart';
 
 import '../size_config.dart';
 import 'credits_button_container.dart';
 class CreditsContainer extends StatelessWidget {
-  const CreditsContainer({
-    Key key,
-  }) : super(key: key);
+  final Function onClick;
+  CreditsContainer({
+    this.onClick
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +39,16 @@ class CreditsContainer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CreditsButtonContainer(buttonIcon: Icon(FontAwesomeIcons.solidCreditCard),
-                  buttonText: Text("Payouts"),
+              GestureDetector(
+                child: CreditsButtonContainer(buttonIcon: Icon(FontAwesomeIcons.solidCreditCard),
+                    buttonText: Text("Load"),
 
+                ),
+                onTap: (){
+                  Navigator.push(
+                      context, MaterialPageRoute(
+                      builder: (context)=>LoadPage()));
+                },
               ),
               CreditsButtonContainer(
                   buttonIcon: Icon(FontAwesomeIcons.gift),
@@ -51,6 +61,9 @@ class CreditsContainer extends StatelessWidget {
               CreditsButtonContainer(
                   buttonIcon: Icon(FontAwesomeIcons.history),
                   buttonText: Text("Activity"),
+                onClick: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ActivityLogs()));
+                },
               ),
             ],
           )

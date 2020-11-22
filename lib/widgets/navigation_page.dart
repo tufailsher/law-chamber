@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:law_chamber/pages/credit_screen.dart';
+import 'package:law_chamber/pages/credits_page.dart';
 import 'package:law_chamber/pages/lawyer_data.dart';
 import 'package:law_chamber/pages/lawyer_home_page.dart';
 import 'package:law_chamber/pages/notification_screen.dart';
@@ -14,9 +14,9 @@ static const TextStyle optionStyle =
 TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
  List<Widget> _widgetOptions = <Widget>[
   LawyerHomePage(),
-  CreditScreen(),
+  CreditsPage(),
   NotificationScreen(),
-   LawyerData(),
+  LawyerData(),
 ];
 
 void _onItemTapped(int index) {

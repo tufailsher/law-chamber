@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/blocs/authentications_bloc.dart';
+import 'package:law_chamber/pages/client_home.dart';
 import 'package:law_chamber/pages/lawyer_home_page.dart';
 import 'package:law_chamber/utils/Constants.dart';
 import 'package:law_chamber/widgets/navigation_page.dart';
@@ -149,11 +150,15 @@ class _LogInScreenState extends State<LogInScreen> {
                                       if (_formKey.currentState.validate()) {
                                         final Response<String> response=
                                         await Provider.of<AuthenticationBLOC>(context,listen: false)
-                                            .signIn(userEmail.text.trim(),userPassword.text);
+                                            .signIn(userEmail.text.trim(),userPassword.text.trim());
                                         if (response.data=="lawyer") {
-                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
-                                        }else{
-                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
+                                          Navigator.push(
+                                              context, MaterialPageRoute(
+                                              builder: (context)=>NavigationPage()));
+                                        }else if(response.data=="client"){
+                                          Navigator.push(
+                                              context, MaterialPageRoute(
+                                              builder: (context)=>ClientHome()));
                                         }
                                       }
                                     },
@@ -195,7 +200,8 @@ class _LogInScreenState extends State<LogInScreen> {
                                   }
                                 });
                               },
-                              child: PrimaryButton(color: Color(0xffF44336),
+                              child: PrimaryButton(
+                                color: Color(0xffF44336),
                                 widget: Row(
                                   children: [
                                     Padding(
@@ -221,7 +227,8 @@ class _LogInScreenState extends State<LogInScreen> {
                             SizedBox(
                               height: SizeConfig.init(context).height(0.020),
                             ),
-                            PrimaryButton(color: Color(0xff03A9F4),
+                            PrimaryButton(
+                              color: Color(0xff03A9F4),
                               widget: Row(
                                 children: [
                                   Padding(
@@ -229,7 +236,8 @@ class _LogInScreenState extends State<LogInScreen> {
                                       left: SizeConfig.init(context).width(
                                           0.080),
                                     ),
-                                    child: Icon(FontAwesomeIcons.facebookSquare,
+                                    child: Icon(
+                                      FontAwesomeIcons.facebookSquare,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -246,7 +254,8 @@ class _LogInScreenState extends State<LogInScreen> {
                               height: SizeConfig.init(context).height(0.020),
                             ),
                             GestureDetector(
-                              child: PrimaryButton(color: Color(0xff303F9F),
+                              child: PrimaryButton(
+                                color: Color(0xff303F9F),
                                 widget: Center(
                                   child: Text("Sign Up",
                                     style: kGoogleStyle,
