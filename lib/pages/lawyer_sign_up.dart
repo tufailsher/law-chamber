@@ -17,6 +17,7 @@ class LawyerSignUp extends StatefulWidget {
 }
 
 class _LawyerSignUpState extends State<LawyerSignUp> {
+  TextEditingController confirmPassword = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -30,11 +31,12 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
 
   Future<void> uploadData() async {
     Lawyer _lawyer = Lawyer(
-        email: emailController.text,
-        chamberNumber: chamberNumberController.text,
-        licenseNumber: licenseNumberController.text,
-        type: lawyer,
-        id: id,);
+      email: emailController.text,
+      chamberNumber: chamberNumberController.text,
+      licenseNumber: licenseNumberController.text,
+      type: lawyer,
+      id: id,
+    );
 
     await db.collection("userData").doc(id).set(_lawyer.toJSON());
   }
@@ -47,14 +49,12 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
       if (user != null) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => NavigationPage()));
-
         id = user.uid;
+        uploadData();
         emailController.clear();
         passwordController.clear();
         licenseNumberController.clear();
         chamberNumberController.clear();
-        uploadData();
-
       }
     }
   }
@@ -94,13 +94,14 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                           ),
                           validator: (value) {
                             if (value.isEmpty) {
-                              return "Please enter some text here";
+                              return "Your Email is incorrect";
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: sizeConfig.height(0.020)),
                         TextFormField(
+                          obscureText: true,
                           controller: passwordController,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
@@ -109,15 +110,19 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                             ),
                             hintText: "Password",
                           ),
-                          validator: (value) {
-                            if (value.isEmpty) {
-                              return "Please enter some text here";
-                            }
+                          validator: (passwordController) {
+                            setState(() {
+                              if (passwordController.length <= 6) {
+                                return "Your password is incorrect";
+                              }
+                            });
                             return null;
                           },
                         ),
                         SizedBox(height: sizeConfig.height(0.020)),
                         TextFormField(
+                          obscureText: true,
+                          controller: confirmPassword,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -125,12 +130,10 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                             ),
                             hintText: "Confirm password",
                           ),
-                          validator: (value) {
-                            setState(() {
-                              if (value != passwordController.text) {
-                                return "Password is not matching";
-                              }
-                            });
+                          validator: (val) {
+                            if (val.isEmpty) return 'Empty';
+                            if (val != passwordController.text)
+                              return 'Not Match';
                             return null;
                           },
                         ),

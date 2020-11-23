@@ -29,7 +29,6 @@ class _LogInScreenState extends State<LogInScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController userEmail = TextEditingController();
   final TextEditingController userPassword = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
         return SafeArea(
@@ -116,9 +115,9 @@ class _LogInScreenState extends State<LogInScreen> {
                                       ),
                                       hintText: "Password",
                                     ),
-                                    validator: (value) {
-                                      if (value.isEmpty) {
-                                        return "Please enter some text here";
+                                    validator: (userPassword) {
+                                      if (userPassword.isEmpty) {
+                                        return "Enter correct password";
                                       }
                                       return null;
                                     },
@@ -152,7 +151,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                         final Response<String> response=
                                         await Provider.of<AuthenticationBLOC>(context,listen: false)
                                             .signIn(userEmail.text.trim(),userPassword.text.trim());
-                                        if (response.data=="lawyer") {
+                                        if (response.data=="lawyer"){
                                           Navigator.push(
                                               context, MaterialPageRoute(
                                               builder: (context)=>NavigationPage()));
