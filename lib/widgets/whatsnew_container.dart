@@ -22,10 +22,10 @@ class WhatsNewContainer extends StatelessWidget {
         style: kLogInText,
         ),
         subtitle: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.black54),
-          ),
+          // decoration: BoxDecoration(
+          //   borderRadius: BorderRadius.circular(10),
+          //   border: Border.all(color: Colors.black54),
+          // ),
           height: SizeConfig.init(context).height(0.30),
           width:SizeConfig.init(context).width(0.9),
           child: Center(

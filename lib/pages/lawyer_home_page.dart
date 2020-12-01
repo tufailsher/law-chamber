@@ -6,6 +6,7 @@ import 'package:law_chamber/pages/consult_page.dart';
 import 'package:law_chamber/pages/credits_page.dart';
 import 'package:law_chamber/pages/every_day_law_page.dart';
 import 'package:law_chamber/pages/files_page.dart';
+import 'package:law_chamber/pages/promotion_page.dart';
 import 'package:law_chamber/pages/works_page.dart';
 import 'package:law_chamber/size_config.dart';
 import 'package:law_chamber/utils/Constants.dart';
@@ -101,10 +102,11 @@ class _LawyerHomePageState extends State<LawyerHomePage> {
                       GridViewContainer(
                         containerIcon: Icon(FontAwesomeIcons.calculator),
                         containerText: Text("Works"),
-                        onClick: (){
+                        onClick: () {
                           Navigator.push(
-                              context, MaterialPageRoute(
-                              builder: (context)=>WorksPage()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WorksPage()));
                         },
                       ),
                       GridViewContainer(
@@ -126,21 +128,28 @@ class _LawyerHomePageState extends State<LawyerHomePage> {
                                     builder: (context) => CreditsPage()));
                           }),
                       GridViewContainer(
-                        onClick: (){
+                        onClick: () {
                           Navigator.push(
-                              context, MaterialPageRoute(
-                              builder: (context)=>FilesPage()));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FilesPage()));
                         },
                         containerIcon: Icon(FontAwesomeIcons.file),
                         containerText: Text("Files"),
                       ),
                       GridViewContainer(
+                        onClick: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PromotionPage()));
+                        },
                         containerIcon: Icon(FontAwesomeIcons.tags),
                         containerText: Text("Promotion"),
                       ),
                       GridViewContainer(
                         containerIcon: Icon(FontAwesomeIcons.mailBulk),
-                        containerText: Text("Email"),
+                        containerText: Text("Emails"),
                       ),
                     ],
                   ),

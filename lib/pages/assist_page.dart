@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/main.dart';
-import 'package:law_chamber/pages/ongoing_tab_page.dart';
+import 'package:law_chamber/pages/assist_all_tab_page.dart';
+import 'package:law_chamber/pages/assist_ongoing_tab_page.dart';
 import 'package:law_chamber/utils/Constants.dart';
 class AssistPage extends StatefulWidget {
   @override
@@ -52,8 +53,8 @@ class _AssistPageState extends State<AssistPage> {
                 width: double.infinity,
                 child: TabBarView(
                   children: [
-                    OngoingTabPage(),
-                    Center(child: Text("WithDraws")),
+                    AssistOngoingTabPage(),
+                    AssistAllTabPage(),
                   ],
                 ),
               ),

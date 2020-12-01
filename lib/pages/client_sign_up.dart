@@ -36,19 +36,23 @@ class _ClientSignUpState extends State<ClientSignUp> {
                     children: [
                       TextFieldContainer(
                         textField: TextField(
+                          textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             hintText: "email".toUpperCase(),
                           ),
                         ),
                       ),
-                      TextFieldContainer(textField: TextField(
+                      TextFieldContainer(
+                        textField: TextField(
+                        textAlign: TextAlign.center,
                         decoration: InputDecoration(
-                            hintText: "password".toUpperCase()
+                            hintText: "password".toUpperCase(),
                         ),
                       ),
                       ),
                       TextFieldContainer(
                         textField: TextField(
+                          textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             hintText: "confirm password".toUpperCase(),
                           ),

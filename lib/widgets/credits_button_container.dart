@@ -17,6 +17,7 @@ class CreditsButtonContainer extends StatelessWidget {
         height: SizeConfig.init(context).height(0.1),
         width: SizeConfig.init(context).width(0.2),
         decoration: BoxDecoration(
+          color: Colors.black.withOpacity(0.1),
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: Colors.black12),
         ),

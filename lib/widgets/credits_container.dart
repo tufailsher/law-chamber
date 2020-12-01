@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:law_chamber/main.dart';
 import 'package:law_chamber/pages/activity_logs.dart';
 import 'package:law_chamber/pages/load_page.dart';
 import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/utils/Constants.dart';
@@ -26,9 +27,12 @@ class CreditsContainer extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topLeft,
-            child: Text("Credits",
-            //textAlign: TextAlign.start,
-            style: kLogInText,
+            child: Padding(
+              padding: EdgeInsets.all(sizeConfig.height(0.010)),
+              child: Text("Credits",
+              //textAlign: TextAlign.start,
+              style: kLogInText,
+              ),
             ),
           ),
           Divider(
