@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:law_chamber/main.dart';
+import 'package:law_chamber/size_config.dart';
 class GridViewContainer extends StatelessWidget {
   final Icon containerIcon;
   final Text containerText;
@@ -13,12 +14,22 @@ class GridViewContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Scaffold(
-        body: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            containerIcon,
-            containerText,
-          ],
+        body: Container(
+
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white
+            // border: Border.all(color: Colors.black54),
+          ),
+          height: SizeConfig.init(context).height(0.20),
+          width:SizeConfig.init(context).width(0.9),
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              containerIcon,
+              containerText,
+            ],
+          ),
         ),
       ),
       onTap: onClick,
