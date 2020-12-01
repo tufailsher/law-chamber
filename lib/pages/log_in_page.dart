@@ -12,18 +12,17 @@ import 'package:law_chamber/pages/lawyer_home_page.dart';
 import 'package:law_chamber/utils/Constants.dart';
 import 'package:law_chamber/widgets/navigation_page.dart';
 import 'package:law_chamber/widgets/sign_in_bottom_sheet.dart';
-import 'package:law_chamber/widgets/google_sign_in.dart';
+import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/blocs/google_sign_in_bloc.dart';
 import 'package:law_chamber/size_config.dart';
 import 'package:law_chamber/widgets/app_bar_container.dart';
 import 'package:law_chamber/widgets/primary_button.dart';
 import 'package:provider/provider.dart';
 import 'package:zap_architecture/zap_architecture.dart';
-
-class LogInScreen extends StatefulWidget {
+class LogInPage extends StatefulWidget {
   @override
-  _LogInScreenState createState() => _LogInScreenState();
+  _LogInPageState createState() => _LogInPageState();
 }
-class _LogInScreenState extends State<LogInScreen> {
+class _LogInPageState extends State<LogInPage> {
   FirebaseAuth _auth = FirebaseAuth.instance;
   bool success = true;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -31,6 +30,7 @@ class _LogInScreenState extends State<LogInScreen> {
   final TextEditingController userPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
+   final authentications= Provider.of<AuthenticationBLOC>(context,listen: false);
         return SafeArea(
           child: Scaffold(
             //backgroundColor: Color(0xFF00BCD4),
@@ -149,8 +149,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                     onTap: () async {
                                       if (_formKey.currentState.validate()) {
                                         final Response<String> response=
-                                        await Provider.of<AuthenticationBLOC>(context,listen: false)
-                                            .signIn(userEmail.text.trim(),userPassword.text.trim());
+                                        await authentications.signIn(userEmail.text.trim(),userPassword.text.trim());
                                         if (response.data=="lawyer"){
                                           Navigator.push(
                                               context, MaterialPageRoute(
@@ -191,7 +190,7 @@ class _LogInScreenState extends State<LogInScreen> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {
+                              /*onTap: () {
                                 signInWithGoogle().then((result) {
                                   if (result != null) {
                                     Navigator.push(context, MaterialPageRoute(
@@ -199,7 +198,7 @@ class _LogInScreenState extends State<LogInScreen> {
                                             LawyerHomePage()));
                                   }
                                 });
-                              },
+                              },*/
                               child: PrimaryButton(
                                 color: Color(0xffF44336),
                                 widget: Row(
@@ -227,28 +226,31 @@ class _LogInScreenState extends State<LogInScreen> {
                             SizedBox(
                               height: SizeConfig.init(context).height(0.020),
                             ),
-                            PrimaryButton(
-                              color: Color(0xff03A9F4),
-                              widget: Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      left: SizeConfig.init(context).width(
-                                          0.080),
+                            GestureDetector(
+                              child: PrimaryButton(
+                                color: Color(0xff03A9F4),
+                                widget: Row(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: SizeConfig.init(context).width(
+                                            0.080),
+                                      ),
+                                      child: Icon(
+                                        FontAwesomeIcons.facebookSquare,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                    child: Icon(
-                                      FontAwesomeIcons.facebookSquare,
-                                      color: Colors.white,
+                                    SizedBox(
+                                      width: SizeConfig.init(context).width(0.1),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: SizeConfig.init(context).width(0.1),
-                                  ),
-                                  Text("Login with Facebook",
-                                    style: kGoogleStyle,
-                                  ),
-                                ],
+                                    Text("Login with Facebook",
+                                      style: kGoogleStyle,
+                                    ),
+                                  ],
+                                ),
                               ),
+                              onTap:()=> authentications.facebookLogIn(),
                             ),
                             SizedBox(
                               height: SizeConfig.init(context).height(0.020),

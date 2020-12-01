@@ -1,12 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:law_chamber/blocs/google.dart';
+import 'package:law_chamber/blocs/google_sign_in_bloc.dart';
 import 'package:law_chamber/main.dart';
 import 'package:law_chamber/utils/Constants.dart';
 import 'package:law_chamber/utils/models.dart';
 import 'package:law_chamber/widgets/app_bar_container.dart';
 import 'package:law_chamber/widgets/navigation_page.dart';
 import 'package:law_chamber/widgets/primary_button.dart';
+import 'package:provider/provider.dart';
+import 'package:zap_architecture_flutter/zap_architecture_flutter.dart';
 import 'lawyer_home_page.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
@@ -25,7 +31,6 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
   TextEditingController licenseNumberController = TextEditingController();
   String lawyer = "lawyer";
   String id;
-
   bool status = true;
   FirebaseFirestore db = FirebaseFirestore.instance;
 
@@ -58,9 +63,13 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
       }
     }
   }
-
+  @override
+  void initState() {
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+    final gSignIn= Provider.of<GoogleSignInBLOC>(context,listen: false);
     return Scaffold(
       body: Stack(
         children: [
@@ -181,6 +190,39 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                                 "Register",
                                 style: kGoogleStyle,
                               ),
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            signInWithGoogle().then((value){
+                              if ( value != null){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
+                              }
+                            });
+
+                          },
+                          child: PrimaryButton(
+                            color: Color(0xffF44336),
+                            widget: Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    left: SizeConfig.init(context).width(
+                                        0.080),
+                                  ),
+                                  child: Icon(FontAwesomeIcons.google,
+                                    color: Colors.white,),
+                                ),
+                                SizedBox(
+                                  width: SizeConfig.init(context).width(
+                                      0.1),
+                                ),
+                                Text(
+                                  "Login With Google",
+                                  style: kGoogleStyle,
+                                ),
+                              ],
                             ),
                           ),
                         ),

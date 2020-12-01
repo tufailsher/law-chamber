@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:law_chamber/size_config.dart';
 import '../main.dart';
-import 'log_in_screen.dart';
+import 'log_in_page.dart';
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(milliseconds: 5000), () {
       Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => LogInScreen())
+          MaterialPageRoute(builder: (context) => LogInPage())
       );
     });
   }

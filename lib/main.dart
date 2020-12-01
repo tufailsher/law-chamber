@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:law_chamber/blocs/authentications_bloc.dart';
+import 'package:law_chamber/blocs/google_sign_in_bloc.dart';
 import 'package:law_chamber/size_config.dart';
 import 'package:provider/provider.dart';
 import 'utils/Constants.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => AuthenticationBLOC()),
+          ChangeNotifierProvider(create: (_) => GoogleSignInBLOC()),
         ],
         child: MaterialApp(
           theme: ThemeData(

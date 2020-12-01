@@ -38,6 +38,7 @@ dependencies:
   zap_architecture: ^0.1.0
   firebase_database: ^4.3.0
   font_awesome_flutter: ^8.10.0
+  flutter_facebook_login: ^3.0.0
   zap_architecture_flutter: ^0.0.2
 
 
