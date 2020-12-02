@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:law_chamber/main.dart';
 import 'package:law_chamber/utils/Constants.dart';
 class MyPrizesPage extends StatefulWidget {
   @override
@@ -24,15 +25,31 @@ class _MyPrizesPageState extends State<MyPrizesPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text("Redeemed",style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                Expanded(
+                  child: Container(
+                    // height: sizeConfig.height(0.020),
+                    child: ListTile(
+                      title: Text("Redeemed",style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                      ),
+                      subtitle: Text("0"),
+                    ),
+                  ),
                 ),
-                ),
-                Text("Earned",style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                )),
+                Expanded(
+                  child: Container(
+                    child: ListTile(
+                      title: Text("Earned",style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                      ),
+                      subtitle: Text("0"),
+                    ),
+                  ),
+                )
               ],
             ),
 

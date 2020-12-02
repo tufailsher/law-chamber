@@ -13,30 +13,18 @@ class _WhatNewPageState extends State<WhatNewPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ListTile(
-              title: Text("Laws and Jugements",style: kLogInText),
-              subtitle: (Text("The Financial Action Task Force (FATF),\n"
-                  " the international watchdog against money laundering and\n"
-                  " financing of terrorism,\n"
-                  " first put Pakistan on a list of \n"
-                  "“jurisdictions with strategic […]")),
+            Container(
+              height: sizeConfig.height(0.50),
+              width: sizeConfig.width(0.9),
+              child: Image.asset("assets/images/everyDayLaw.png",
+                fit: BoxFit.cover,),
             ),
-            ListTile(
-              title: Text("Laws and Jugements",style: kLogInText),
-              subtitle: (Text("The Financial Action Task Force (FATF),\n"
-                  " the international watchdog against money laundering and\n"
-                  " financing of terrorism,\n"
-                  " first put Pakistan on a list of \n"
-                  "“jurisdictions with strategic […]")),
-            ),
-            ListTile(
-              title: Text("Laws and Jugements",style: kLogInText),
-              subtitle: (Text("The Financial Action Task Force (FATF),\n"
-                  " the international watchdog against money laundering and\n"
-                  " financing of terrorism,\n"
-                  " first put Pakistan on a list of \n"
-                  "“jurisdictions with strategic […]")),
-            ),
+            ListTile(leading: Text("Every Day Law", style: kLogInText)),
+            Text("The Financial Action Task Force (FATF),\n"
+                " the international watchdog against money laundering and\n"
+                " financing of terrorism,\n"
+                " first put Pakistan on a list of \n"
+                "“jurisdictions with strategic […]"),
           ],
         ),
       ),

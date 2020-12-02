@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:law_chamber/pages/clients_fame_page.dart';
+import 'package:law_chamber/pages/clients_notification_page.dart';
 import 'package:law_chamber/pages/my_prizes_page.dart';
 import 'package:law_chamber/pages/news_page.dart';
 import 'package:law_chamber/pages/what_new_page.dart';
@@ -71,7 +72,7 @@ class _EveryDayLawPageState extends State<EveryDayLawPage> {
                         Image(image: AssetImage("assets/images/2.png"),)
                       ],
                     ),
-                    Center(child: Text("Clients")),
+                    ClientsNotificationPage(),
                     ClientsFamePage(),
                     PrizeRedemptionsPage(),
                   ],
