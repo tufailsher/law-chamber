@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:law_chamber/pages/clients_fame_page.dart';
 import 'package:law_chamber/pages/my_prizes_page.dart';
 import 'package:law_chamber/pages/news_page.dart';
 import 'package:law_chamber/pages/what_new_page.dart';
 import 'package:law_chamber/utils/Constants.dart';
+
+import 'prize_redemptions_page.dart';
 class EveryDayLawPage extends StatefulWidget {
   @override
   _EveryDayLawPageState createState() => _EveryDayLawPageState();
@@ -69,8 +72,8 @@ class _EveryDayLawPageState extends State<EveryDayLawPage> {
                       ],
                     ),
                     Center(child: Text("Clients")),
-                    Center(child: Text("Clients Hall of fame")),
-                    Center(child: Text("Prize for Redemptions")),
+                    ClientsFamePage(),
+                    PrizeRedemptionsPage(),
                   ],
                 ),
               ),

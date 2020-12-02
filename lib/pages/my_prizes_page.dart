@@ -14,20 +14,28 @@ class _MyPrizesPageState extends State<MyPrizesPage> {
       child: Scaffold(
         body: Column(
           children: [
-             Text("Balance",style: kLogInText),
-            Text("0",style: kLogInText),
+             ListTile(title : Text("Balance",style: kLogInText),
+             subtitle:Text("0",style: kLogInText),
+             trailing: CircleAvatar(
+               radius: 20,
+             ),
+             ),
+
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Expanded(child: Text("Redeemed",style: TextStyle(
+                Text("Redeemed",style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
-                ),)),
+                ),
+                ),
                 Text("Earned",style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
                 )),
               ],
             ),
+
             OutlineButton(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 onPressed: (){}, child: Text("Redeemed Prizes")),

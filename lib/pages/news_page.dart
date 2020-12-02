@@ -14,48 +14,43 @@ class _NewsPageState extends State<NewsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            newsList(),
-            ListTile(
-              title: Text("Laws and Jugements", style: kLogInText),
-              subtitle: (Text("The Financial Action Task Force (FATF),\n"
-                  " the international watchdog against money laundering and\n"
-                  " financing of terrorism,\n"
-                  " first put Pakistan on a list of \n"
-                  "“jurisdictions with strategic […]")),
+            Container(
+              height: sizeConfig.height(0.20),
+              width: sizeConfig.width(0.9),
+              child: Image.asset("assets/images/news1.jpg",
+                fit: BoxFit.cover,),
             ),
-            ListTile(
-              title: Text("Laws and Jugements", style: kLogInText),
-              subtitle: (Text("The Financial Action Task Force (FATF),\n"
-                  " the international watchdog against money laundering and\n"
-                  " financing of terrorism,\n"
-                  " first put Pakistan on a list of \n"
-                  "“jurisdictions with strategic […]")),
+            Text("Laws and Jugements", style: kLogInText),
+                Text("The Financial Action Task Force (FATF),\n"
+                    " the international watchdog against money laundering and\n"
+                    " financing of terrorism,\n"
+                    " first put Pakistan on a list of \n"
+                    "“jurisdictions with strategic […]"),
+            Container(
+              height: sizeConfig.height(0.20),
+              width: sizeConfig.width(0.9),
+              child: Image.asset("assets/images/news1.jpg",
+                fit: BoxFit.cover,),
             ),
+            Text("Laws and Jugements", style: kLogInText),
+            Text("The Financial Action Task Force (FATF),\n"
+                " the international watchdog against money laundering and\n"
+                " financing of terrorism,\n"
+                " first put Pakistan on a list of \n"
+                "“jurisdictions with strategic […]"),
+            Container(
+              height: sizeConfig.height(0.20),
+              width: sizeConfig.width(0.9),
+              child: Image.asset("assets/images/news1.jpg",
+                fit: BoxFit.cover,),
+            ),
+            ListTile(leading: Text("Laws and Jugements", style: kLogInText)),
+            Text("The Financial Action Task Force (FATF),\n"
+                " the international watchdog against money laundering and\n"
+                " financing of terrorism,\n"
+                " first put Pakistan on a list of \n"
+                "“jurisdictions with strategic […]"),
           ],
-        ),
-      ),
-    );
-  }
-
-  Padding newsList() {
-    return Padding(
-      padding: EdgeInsets.all(sizeConfig.height(0.010)),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-        ),
-        child: ListTile(
-          title: Text(
-              "Laws and Jugements", style: kLogInText
-          ),
-          subtitle: (
-              Text(
-                  "The Financial Action Task Force (FATF),\n"
-              " the international watchdog against money laundering and\n"
-              " financing of terrorism,\n"
-              " first put Pakistan on a list of \n"
-              "“jurisdictions with strategic […]")
-          ),
         ),
       ),
     );
