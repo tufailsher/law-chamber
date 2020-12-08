@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/utils/ContainerStyles.dart';
 import 'package:law_chamber/pages/client_sign_up.dart';
-import 'package:law_chamber/pages/lawyer_sign_up.dart';
+import 'package:law_chamber/pages/lawyer_registration_page.dart';
 
 import '../utils/Constants.dart';
 import '../size_config.dart';
@@ -35,7 +35,7 @@ void registrationBottomSheet(context){
                     color: Colors.black,
                   ),
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LawyerSignUp()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LawyerRegistrationPage()));
                   },
                 ),
               ),

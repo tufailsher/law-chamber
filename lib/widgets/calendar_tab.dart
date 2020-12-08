@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/pages/every_day_law_page.dart';
 import 'package:law_chamber/pages/lawyer_data.dart';
 import 'package:law_chamber/pages/lawyer_home_page.dart';
+import 'package:law_chamber/pages/log_in_page.dart';
 import 'package:law_chamber/pages/what_new_page.dart';
 import 'package:law_chamber/utils/Constants.dart';
 import 'package:law_chamber/widgets/navigation_page.dart';
@@ -55,7 +56,9 @@ class _CalendarTabState extends State<CalendarTab> {
               Icon(FontAwesomeIcons.fileAlt), Text("Terms and Conditions"),(){}),
           buildListTile(Icon(FontAwesomeIcons.cog), Text("Settings"),(){}),
           FlatButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>LogInPage()));
+            },
             child: Center(
               child: Text(
                 "log Out",

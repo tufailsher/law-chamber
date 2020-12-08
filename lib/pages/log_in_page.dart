@@ -9,11 +9,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/blocs/authentications_bloc.dart';
 import 'package:law_chamber/main.dart';
 import 'package:law_chamber/pages/client_home.dart';
-import 'package:law_chamber/pages/lawyer_home_page.dart';
 import 'package:law_chamber/utils/Constants.dart';
 import 'package:law_chamber/widgets/navigation_page.dart';
 import 'package:law_chamber/widgets/sign_in_bottom_sheet.dart';
-import 'file:///C:/Users/Muhammad%20Tufail/AndroidStudioProjects/flutter_app/law_chamber/lib/blocs/google_sign_in_bloc.dart';
 import 'package:law_chamber/size_config.dart';
 import 'package:law_chamber/widgets/app_bar_container.dart';
 import 'package:law_chamber/widgets/primary_button.dart';
@@ -32,6 +30,7 @@ class _LogInPageState extends State<LogInPage> {
   @override
   Widget build(BuildContext context) {
    final authentications= Provider.of<AuthenticationBLOC>(context,listen: false);
+   final google= Provider.of<AuthenticationBLOC>(context,listen: false);
         return SafeArea(
           child: Scaffold(
             //backgroundColor: Color(0xFF00BCD4),
@@ -225,6 +224,10 @@ class _LogInPageState extends State<LogInPage> {
                                     ],
                                   ),
                                 ),
+                                onTap: (){
+                                  google.signIn(userEmail.text, userPassword.text);
+
+                                },
                               ),
                               SizedBox(
                                 height: SizeConfig.init(context).height(0.020),

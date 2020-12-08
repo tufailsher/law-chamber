@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:law_chamber/blocs/google.dart';
 import 'package:law_chamber/blocs/google_sign_in_bloc.dart';
 import 'package:law_chamber/main.dart';
 import 'package:law_chamber/utils/Constants.dart';
@@ -13,25 +11,46 @@ import 'package:law_chamber/widgets/navigation_page.dart';
 import 'package:law_chamber/widgets/primary_button.dart';
 import 'package:provider/provider.dart';
 import 'package:zap_architecture_flutter/zap_architecture_flutter.dart';
-import 'lawyer_home_page.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 
-class LawyerSignUp extends StatefulWidget {
+class LawyerRegistrationPage extends StatefulWidget {
   @override
-  _LawyerSignUpState createState() => _LawyerSignUpState();
+  _LawyerRegistrationPageState createState() => _LawyerRegistrationPageState();
 }
 
-class _LawyerSignUpState extends State<LawyerSignUp> {
+class _LawyerRegistrationPageState extends State<LawyerRegistrationPage> {
+  void _onLoading() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: new Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              new CircularProgressIndicator(),
+              new Text("Loading"),
+            ],
+          ),
+        );
+      },
+    );
+    new Future.delayed(new Duration(seconds: 3), () {
+      register();
+      Navigator.pop(context);
+    });
+  }
   TextEditingController confirmPassword = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController chamberNumberController = TextEditingController();
   TextEditingController licenseNumberController = TextEditingController();
+  bool _loading = false;
   String lawyer = "lawyer";
   String id;
-  bool status = true;
+  bool status = false;
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   Future<void> uploadData() async {
@@ -60,16 +79,18 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
         passwordController.clear();
         licenseNumberController.clear();
         chamberNumberController.clear();
+
       }
     }
   }
   @override
   void initState() {
     super.initState();
+    register();
   }
   @override
   Widget build(BuildContext context) {
-    final gSignIn= Provider.of<GoogleSignInBLOC>(context,listen: false);
+    final google = Provider.of<GoogleSignInBLOC>(context, listen: false);
     return Scaffold(
       body: Stack(
         children: [
@@ -154,7 +175,7 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                             border: OutlineInputBorder(
                               borderSide: BorderSide(),
                             ),
-                            hintText: "License Number",
+                            hintText: "Chamber Number",
                           ),
                           validator: (value) {
                             if (value.isEmpty) {
@@ -182,7 +203,9 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                         ),
                         SizedBox(height: sizeConfig.height(0.020)),
                         GestureDetector(
-                          onTap: register,
+                          onTap: (){
+                             _onLoading();
+                          },
                           child: PrimaryButton(
                             color: Colors.blueAccent,
                             widget: Center(
@@ -193,37 +216,28 @@ class _LawyerSignUpState extends State<LawyerSignUp> {
                             ),
                           ),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            signInWithGoogle().then((value){
-                              if ( value != null){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationPage()));
-                              }
-                            });
-
-                          },
-                          child: PrimaryButton(
-                            color: Color(0xffF44336),
-                            widget: Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    left: SizeConfig.init(context).width(
-                                        0.080),
-                                  ),
-                                  child: Icon(FontAwesomeIcons.google,
-                                    color: Colors.white,),
+                        SizedBox(height: sizeConfig.height(0.020)),
+                        PrimaryButton(
+                          color: Color(0xffF44336),
+                          widget: Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: SizeConfig.init(context).width(0.080),
                                 ),
-                                SizedBox(
-                                  width: SizeConfig.init(context).width(
-                                      0.1),
+                                child: Icon(
+                                  FontAwesomeIcons.google,
+                                  color: Colors.white,
                                 ),
-                                Text(
-                                  "Login With Google",
-                                  style: kGoogleStyle,
-                                ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(
+                                width: sizeConfig.width(0.060),
+                              ),
+                              Text(
+                                "Login With Google",
+                                style: kGoogleStyle,
+                              ),
+                            ],
                           ),
                         ),
                       ],

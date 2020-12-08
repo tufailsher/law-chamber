@@ -1,18 +1,17 @@
-//import 'package:flutter/cupertino.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_fonts/google_fonts.dart';
 const kGoogleStyle = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.bold,
+  //fontFamily:
 );
 const kLogInText =TextStyle(
   color: Colors.black,
   fontSize: 20,
   fontWeight: FontWeight.bold,
 );
-const kAppBarTextStyle = TextStyle(
+final kAppBarTextStyle = GoogleFonts.playfairDisplay(
   letterSpacing: 2.0,
   fontSize: 40,
   fontWeight: FontWeight.bold,
@@ -45,6 +44,7 @@ fontWeight: FontWeight.bold,
 const kBottomSheetText = TextStyle(
   fontSize: 20,
   color: Colors.black,
+
 );
 const kDrawerHeaderText = TextStyle(
   color: Colors.white,

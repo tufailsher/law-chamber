@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:law_chamber/main.dart';
+import 'package:law_chamber/utils/Constants.dart';
 class ClientsFamePage extends StatefulWidget {
   @override
   _ClientsFamePageState createState() => _ClientsFamePageState();
@@ -15,7 +16,10 @@ class _ClientsFamePageState extends State<ClientsFamePage> {
         height: sizeConfig.height(0.15),
         width: sizeConfig.width(0.40),
         child: ListTile(
-          title: Icon(icon,size: sizeConfig.height(0.1),
+          title: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(icon,size: sizeConfig.height(0.1),
+            ),
           ),
           subtitle: Text(text),
         ),
@@ -25,6 +29,15 @@ class _ClientsFamePageState extends State<ClientsFamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Clients Hall of Fame"),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: kGradientColor,
+          ),
+        ),
+      ),
       body: Padding(
         padding:  EdgeInsets.only(top:sizeConfig.height(0.020)),
         child: Column(
@@ -48,9 +61,18 @@ class _ClientsFamePageState extends State<ClientsFamePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Rank"),
-                  Text("Name"),
-                  Text("Points"),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Rank"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Name"),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("Points"),
+                  ),
                 ],
               ),
             ),
